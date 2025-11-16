@@ -59,7 +59,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+#headder.card-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
 .card-title {
   color: #ffd700;
   font-size: clamp(1.2rem, 3vw, 2rem);
@@ -89,11 +95,16 @@
 }
 
 #greeting-card {
-  max-width: 90%;
-  width: 900px;
-  aspect-ratio: 16/10;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  opacity: 0;
+  z-index: 100;
+  animation: slideUp 1s ease-out forwards;
 }
-
 .card-message {
   color: #fff;
   font-size: clamp(1rem, 2.5vw, 1.3rem);
@@ -117,10 +128,19 @@
 @media (max-width: 480px) {
   #greeting-card {
     width: 100%;
-    min-height: 85vh; /* full màn hình dọc, bao trọn nội dung */
   }
-
   #card-placeholder {
+    min-height: 350px; /* cao hơn để đủ nội dung dọc */
     padding: 30px;
+  }
+}
+@keyframes slideUp {
+  0% {
+    transform: translate(-50%, 100%) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 }
