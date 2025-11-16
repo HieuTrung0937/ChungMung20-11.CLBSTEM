@@ -15,6 +15,7 @@
   background-position: center;
   filter: brightness(0.6);
   z-index: -1;
+  pointer-events: none;
 }
 
 #card-image-container {
@@ -26,6 +27,7 @@
 #card-placeholder {
   padding: 30px;
   width: 100%;
+  height: 450px;
   aspect-ratio: 16/10;
   background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
   border-radius: 15px;
@@ -59,7 +61,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+#headder.card-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #ffd700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
 .card-title {
   color: #ffd700;
   font-size: clamp(1.2rem, 3vw, 2rem);
@@ -89,11 +97,17 @@
 }
 
 #greeting-card {
-  max-width: 90%;
-  width: 900px;
-  aspect-ratio: 16/10;
-}
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
 
+  opacity: 0;
+  z-index: 100;
+  animation: slideUp 1s ease-out forwards;
+}
 .card-message {
   color: #fff;
   font-size: clamp(1rem, 2.5vw, 1.3rem);
@@ -111,16 +125,98 @@
 
   #card-placeholder {
     padding: 40px;
+    height: 300px;
   }
 }
 
 @media (max-width: 480px) {
   #greeting-card {
     width: 100%;
-    min-height: 85vh; /* full màn hình dọc, bao trọn nội dung */
   }
-
   #card-placeholder {
+    min-height: 350px; /* cao hơn để đủ nội dung dọc */
     padding: 30px;
   }
+}
+@keyframes slideUp {
+  0% {
+    transform: translate(-50%, 100%) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    top: 10%;
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
+  }
+}
+@media (min-width: 768px) {
+  #greeting-card {
+    max-width: 600px; /* phóng to thiệp */
+    padding: 30px 40px;
+    font-size: 1.4rem; /* chữ to hơn */
+  }
+
+  #greeting-card h1 {
+    font-size: 2rem; /* header to hơn */
+  }
+
+  #greeting-card p {
+    font-size: 1.2rem;
+  }
+}
+.photo-section {
+  position: fixed;
+  bottom: -250px; /* bắt đầu dưới màn hình */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  z-index: 50;
+  animation: floatUp 5s ease-out forwards;
+}
+
+.photo {
+  width: 160px; /* to hơn */
+  border-radius: 12px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+  cursor: pointer; /* hiện dấu click */
+  transition: transform 0.3s ease;
+}
+
+.photo:hover {
+  transform: scale(1.1); /* phóng to khi hover */
+}
+
+/* hiệu ứng trôi lên */
+@keyframes floatUp {
+  0% {
+    bottom: -250px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0.8);
+  }
+  100% {
+    bottom: 100px; /* dừng bên dưới thiệp */
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* Lightbox đơn giản */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* cao hơn tất cả */
+  cursor: pointer;
+}
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
 }
