@@ -6,42 +6,46 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="sricts.js" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chúc mừng ngày nhà giáo Việt Nam 20 - 11</title>
   </head>
   <body>
     <div class="backround"></div>
-    <div class="card-container">
+
+    <!-- Nút tròn -->
+    <button id="play-music-btn">Bấm vào đây</button>
+
+    <div class="card-container" id="card-container">
       <div id="greeting-card">
-        <!-- Card Image Section -->
         <div id="card-image-container">
-          <!-- Placeholder thiệp -->
           <div id="card-placeholder">
             <div class="card-title" id="headder">Chúc Mừng</div>
             <div class="card-title">NGÀY NHÀ GIÁO VIỆT NAM</div>
             <div class="card-date">20/11</div>
             <p class="card-message">
-              Tập thể thành viên CLB STEM xin kính chúc các thầy cô Trường THPT
-              Trần Văn Kiết một Ngày Nhà Giáo Việt Nam 20/11 thật vui vẻ! Cảm ơn
-              thầy cô đã tận tâm dạy dỗ, dìu dắt và truyền cảm hứng cho chúng em
-              trên con đường học tập.
+              Tập thể thành viên CLB STEM xin kính chúc các thầy cô một Ngày Nhà
+              Giáo Việt Nam thật vui vẻ!
             </p>
           </div>
-
-          <!-- Nếu có ảnh thực tế, thay placeholder bằng <img> -->
-          <!-- <img src="your-card-image.jpg" alt="Thiệp 20/11"> -->
         </div>
       </div>
     </div>
-    <div class="photo-section">
-      <img src="asset/gv1.jpg" class="photo" />
-      <!-- <img src="asset/gv2.jpg" class="photo" />
-            <img src="asset/gv3.jpg" class="photo" /> -->
+
+    <div class="photo-section" id="photo-section">
+      <img src="asset/gv1.jpg" class="photo z1" />
+      <img src="asset/gv2.jpg" class="photo z2" />
+      <img src="asset/gv3.JPG" class="photo z3" />
+      <img src="asset/gv4.jpg" class="photo z4" />
     </div>
+
     <div id="lightbox">
       <img id="lightbox-img" src="" />
     </div>
+
+    <audio id="bg-music" loop>
+      <source src="asset/nhac20-11.aac" type="audio/mpeg" />
+    </audio>
   </body>
+  <script src="sricts.js" defer></script>
 </html>
