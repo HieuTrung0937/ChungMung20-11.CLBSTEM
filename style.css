@@ -3,6 +3,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+.hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+#greeting-card.start-hidden {
+  animation: none !important;
+  opacity: 0 !important;
+  transform: translate(-50%, -50%) scale(0.8) !important;
+}
 
 .backround {
   position: fixed;
@@ -19,20 +29,28 @@
 }
 
 #play-music-btn {
-  position: fixed;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  border: none;
-  background-color: #ff4500;
-  cursor: pointer;
-  z-index: 10000; /* cao hơn thiệp và ảnh */
-  font-size: 1.5rem;
+  display: block; /* Cho phép canh giữa */
+  margin: 250px auto; /* Đưa nút ra giữa ngang */
+  padding: 14px 28px; /* Nút to dễ bấm */
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
   color: white;
-  animation: jump 1s infinite;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: 0.25s ease;
+  z-index: 1000;
+}
+
+#play-music-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+#play-music-btn:active {
+  transform: scale(0.95);
 }
 
 @keyframes jump {
@@ -270,12 +288,123 @@
   background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 500;
 }
 #lightbox img {
   max-width: 90%;
   max-height: 90%;
   border-radius: 10px;
+}
+.club-footer {
+  width: 100%;
+  padding: 12px 0;
+  background: #0f172a; /* xanh đen đẹp */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  position: fixed; /* nằm ở cuối trang */
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.footer-logo {
+  height: 42px; /* tùy chỉnh */
+  opacity: 0.9;
+  transition: 0.25s ease;
+}
+
+.footer-logo:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.footer-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5); /* chữ mờ */
+  user-select: none; /* không bôi đen */
+  pointer-events: none; /* không click */
+  white-space: nowrap;
+}
+.club-footer {
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.25);
+}
+#fw-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* không chặn click */
+  z-index: 9999; /* trên hết */
+}
+.sticker {
+  position: fixed;
+  top: -50px;
+  font-size: 35px;
+  z-index: 5;
+  opacity: 0; /* ẩn trước khi bấm nút */
+  pointer-events: none;
+}
+
+@keyframes fallDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10vh) translateX(0) rotate(0deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(110vh) translateX(100px) rotate(360deg);
+  }
+}
+
+.sticker:nth-child(1) {
+  left: 5%;
+  animation-delay: 0s;
+  animation-duration: 9s;
+}
+.sticker:nth-child(2) {
+  left: 15%;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+.sticker:nth-child(3) {
+  left: 30%;
+  animation-delay: 1s;
+  animation-duration: 10s;
+}
+.sticker:nth-child(4) {
+  left: 50%;
+  animation-delay: 3s;
+  animation-duration: 8s;
+}
+.sticker:nth-child(5) {
+  left: 70%;
+  animation-delay: 4.5s;
+  animation-duration: 11s;
+}
+.sticker:nth-child(6) {
+  left: 85%;
+  animation-delay: 0.5s;
+  animation-duration: 13s;
+}
+.sticker:nth-child(7) {
+  left: 95%;
+  animation-delay: 2.5s;
+  animation-duration: 9.5s;
+}
+.sticker:nth-child(8) {
+  left: 40%;
+  animation-delay: 5s;
+  animation-duration: 14s;
 }
 
 /* @keyframes floatUp {
@@ -291,7 +420,6 @@
   }
 } */
 
-/* 
 .lightbox {
   position: fixed;
   top: 0;
@@ -309,4 +437,4 @@
   max-width: 90%;
   max-height: 90%;
   border-radius: 15px;
-} */
+}

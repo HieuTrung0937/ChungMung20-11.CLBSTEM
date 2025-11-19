@@ -5,6 +5,7 @@
       href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" href="asset/logoCLB.jpg" type="image/png" />
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,12 +13,23 @@
   </head>
   <body>
     <div class="backround"></div>
+    <canvas id="fw-canvas"></canvas>
 
     <!-- Nút tròn -->
     <button id="play-music-btn">Bấm vào đây</button>
+    <div class="sticker" data-delay="3" data-duration="11">💐</div>
+    <div class="sticker" data-delay="1.5" data-duration="9">🌟</div>
+    <div class="sticker" data-delay="4" data-duration="12">🎈</div>
+    <div class="sticker" data-delay="2.2" data-duration="10">🎁</div>
+    <div class="sticker" data-delay="0.5" data-duration="8">💌</div>
+    <div class="sticker" data-delay="3.5" data-duration="11">🌸</div>
+    <div class="sticker" data-delay="2.7" data-duration="9">🍀</div>
+    <div class="sticker" data-delay="4.2" data-duration="12">🌈</div>
+    <div class="sticker" data-delay="1.8" data-duration="10">⭐</div>
+    <div class="sticker" data-delay="0.9" data-duration="9">🎶</div>
 
     <div class="card-container" id="card-container">
-      <div id="greeting-card">
+      <div id="greeting-card" class="hidden start-hidden">
         <div id="card-image-container">
           <div id="card-placeholder">
             <div class="card-title" id="headder">Chúc Mừng</div>
@@ -32,11 +44,11 @@
       </div>
     </div>
 
-    <div class="photo-section" id="photo-section">
-      <img src="asset/gv1.jpg" class="photo z1" />
-      <img src="asset/gv2.jpg" class="photo z2" />
-      <img src="asset/gv3.JPG" class="photo z3" />
-      <img src="asset/gv4.jpg" class="photo z4" />
+    <div class="photo-section hidden" id="photo-section">
+      <img src="asset/gv1.jpg" class="photo z1 hidden" />
+      <img src="asset/gv2.jpg" class="photo z2 hidden" />
+      <img src="asset/gv3.JPG" class="photo z3 hidden" />
+      <img src="asset/gv4.JPG" class="photo z4 hidden" />
     </div>
 
     <div id="lightbox">
@@ -46,6 +58,21 @@
     <audio id="bg-music" loop>
       <source src="asset/nhac20-11.aac" type="audio/mpeg" />
     </audio>
+    <footer class="club-footer">
+      <img
+        src="asset/logoCLB.jpg"
+        alt="Logo CLB"
+        class="footer-logo left-logo"
+      />
+
+      <span class="footer-text">Bởi CLB STEM Trường THPT Trần Văn Kiết</span>
+
+      <img
+        src="asset/Logo-Truong.jpg"
+        alt="Logo Trường"
+        class="footer-logo right-logo"
+      />
+    </footer>
   </body>
   <script src="sricts.js" defer></script>
 </html>
